@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCompteBancaireTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCompteBancaireLabel_id}"/>
+                    <h:outputText value="#{compteBancaireController.selected.id}" title="#{bundle.ViewCompteBancaireTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewCompteBancaireLabel_owner}"/>
+                    <h:outputText value="#{compteBancaireController.selected.owner}" title="#{bundle.ViewCompteBancaireTitle_owner}"/>
+                    <h:outputText value="#{bundle.ViewCompteBancaireLabel_numero}"/>
+                    <h:outputText value="#{compteBancaireController.selected.numero}" title="#{bundle.ViewCompteBancaireTitle_numero}"/>
+                    <h:outputText value="#{bundle.ViewCompteBancaireLabel_montant}"/>
+                    <h:outputText value="#{compteBancaireController.selected.montant}" title="#{bundle.ViewCompteBancaireTitle_montant}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{compteBancaireController.destroyAndView}" value="#{bundle.ViewCompteBancaireDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCompteBancaireEditLink}"/>
+                <br />
+                <h:commandLink action="#{compteBancaireController.prepareCreate}" value="#{bundle.ViewCompteBancaireCreateLink}" />
+                <br />
+                <h:commandLink action="#{compteBancaireController.prepareList}" value="#{bundle.ViewCompteBancaireShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCompteBancaireIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
